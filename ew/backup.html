@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<link href="assets/css/bootstrap.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../assets/plugins/select2/select2.min.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
+	<link rel="stylesheet" href="../assets/dist/css/AdminLTE.css">
+	<link href="assets/css/style.css" rel="stylesheet" />
+
+</head>
+<body>
+	<?php 
+	include_once'header.php'; 
+	$CurrTime	=	date('Y-m-d h:i:s');
+	$IPAddress	=	$_SERVER['REMOTE_ADDR'];
+	$Insert		=	mysqli_query($connect, "INSERT INTO access(ipaddr) VALUES('$IPAddress')");
+	?>
+	<style>
+		.just-stats{
+		/*
+		background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(<?php echo $banin; ?>) no-repeat 50% 50%;
+		background-attachment: fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		*/
+		background-color:#fff;
+		width: 100%;
+		color: #000;
+		text-align:center;
+		padding-top:0px;
+		padding-bottom:20px;
+		padding-right:10px;
+		padding-left:10px;
+	}
+	.stats-div{
+		vertical-align:middle;
+		background-color:#fff;
+		border:solid 1px #ccc;
+		text-align:center;
+		color:#04053a;
+		border-radius:5px;
+		transition: all .2s ease-in-out;
+	}
+	@media all and (max-width: 845px) and (min-width: 100px) {
+		.just-stats{
+			padding:10px;
+		}
+		.stats-div{
+			margin-top:10px;
+			padding:10px;
+			font-size:12px;
+			margin-bottom:10px;
+		}
+		h4{
+			font-size:14px;
+		}
+		.stats-divv{
+			font-size:12px;
+		}
+	}
+	.stats-div:hover{
+		transform: scale(1.1);
+		border-radius:0%;
+		color:#000;
+		border: solid 1px #04053a;
+	}
+	.stats-divv{
+		vertical-align:middle;
+		background-color:rgba(255,255,255,.25);
+		text-align:center;
+		border:solid 1px #ccc;
+		border-radius:5px;
+		padding:10px;
+		transition: all .2s ease-in-out;
+	}
+	.stats-divv:hover{
+		background-color:rgba(255,255,255,1);
+		transform: scale(1.1);
+		border-radius:0%;
+		color:#04053a;
+	}
+</style>
+<title>Direktorat Jenderal Perhubungan Udara</title>
+<div class="just-stats">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<h3 style="margin-bottom:15px; color:#000;">
+					Selamat Datang di Portal - Direktorat Jenderal Perhubungan Udara<br>
+					<small>Welcome to Portal of Directorate General of Civil Aviation</small>
+				</h3>
+				<!--<h3 align="left">Unit Kerja Kantor Pusat</h3>-->
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12" style="border-right:solid 1px #ccc;">
+				
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<h4 align="left">Sekretariat Direktorat Jenderal<br><small>Secretariat of Directorate General</small></h4>
+						<div class="row" style="margin-bottom:10px;">
+							<a href="../../dju_intern/?id=bagren" style="display:block;">
+								<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="images/bagren.png" height="100"><br>
+										<h4>Bagian Perencanaan Setditjen Hubud<br><small>Planning Department</small></h4>
+									</div>
+								</div>
+							</a>
+							<a href="../../dju_intern/?id=bagkeu" style="display:block;">
+								<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="images/bagkeu.png" height="100"><br>
+										<h4>Bagian Keuangan dan BMN<br><small>Financial Department</small></h4>
+									</div>
+								</div>
+							</a>
+							<a href="../../dju_intern/?id=bagkum" style="display:block;">
+								<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="images/bagkum.png" height="100"><br>
+										<h4>Bagian Hukum Setditjen Hubud<br><small>Law Department</small></h4>
+									</div>
+								</div>
+							</a>
+							<a href="../../dju_intern/?id=bagpeg" style="display:block;">
+								<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="images/bagpeg.png" height="100"><br>
+										<h4>Bagian Kepegawaian dan Organisasi<br><small>Personnel Department</small></h4>
+									</div>
+								</div>
+							</a>
+							<a href="../../dju_intern/?id=baghum" style="display:block;">
+								<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="images/baghum.png" height="100"><br>
+										<h4>Bagian Kerjasama <br>dan Humas<br><small>Cooperation Department</small></h4>
+									</div>
+								</div>
+							</a>
+							<a href="../../dju_intern/?id=dirjen" style="display:block;">
+								<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="images/dirjen.png" height="100"><br>
+										<h4>Direktur Jenderal Perhubungan Udara<br><small>Head of DGCA</small></h4>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<h4 align="left">Unit Kerja Direktorat<br><small>Technical Working Unit</small></h4>
+						<div class="row" style="margin-bottom:10px;">
+							<a href="../../dju_intern/" style="display:block;">
+								<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="images/dau.png" width="100"><br>
+										<h4>Direktorat Angkutan Udara<br><small>Directorate of <br>Air Transport</small></h4>
+									</div>
+								</div>
+							</a>
+							<a href="../../dju_intern/?id=dbu" style="display:block;">
+								<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="images/dbu.png" width="100"><br>
+										<h4>Direktorat Bandar Udara<br><small>Directorate of <br>Airport Management</small></h4>
+									</div>
+								</div>
+							</a>
+							<a href="../../dju_intern/?id=kampen" style="display:block;">
+								<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="images/kampen.png" width="100"><br>
+										<h4>Direktorat Keamanan Penerbangan<br><small>Directorate of <br>Aviation Security</small></h4>
+									</div>
+								</div>
+							</a>
+							<a href="../../dju_intern/?id=navpen" style="display:block;">
+								<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="images/navpen.png" width="100"><br>
+										<h4>Direktorat Navigasi Penerbangan<br><small>Directorate of <br>Air Navigation</small></h4>
+									</div>
+								</div>
+							</a>
+							<a href="../../portalDev/" style="display:block;">
+								<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="images/dku.png" width="100"><br>
+										<h4>Direktorat Kelaikudaraan<br><small>Directorate of <br>Airworthiness</small></h4>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<h4 align="left">Otoritas Bandar Udara dan Unit Penyelenggara Bandar Udara</h4>
+						<div class="row" style="margin-bottom:10px;">
+							<a href="../../dju_intern/?id=otban" style="display:block;">
+								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="images/otban_new.png" width="100"><br>
+										Kantor Otoritas Bandar Udara
+									</div>
+								</div>
+							</a>
+							<a href="../../dju_intern/?id=upbu" style="display:block;">
+								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="images/upbu.png" width="100"><br>
+										Unit Penyelenggara Bandar Udara
+									</div>
+								</div>
+							</a>
+							<a href="../../operator" style="display:block;">
+								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="images/upbl.png" width="100"><br>
+										Unit Penyelenggara Bandara Lainnya
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<h4 align="left">Balai-Balai</h4>
+						<div class="row" style="margin-bottom:10px;">
+							<a href="../../dju_intern/" style="display:block;">
+								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="images/hatpen.png" width="100"><br>
+										<br>Balai Kesehatan Penerbangan
+									</div>
+								</div>
+							</a>
+							<a href="../../dju_intern" style="display:block;">
+								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="images/tekpen.png" width="100"><br>
+										<br>Balai Teknik Penerbangan
+									</div>
+								</div>
+							</a>
+							<a href="../../dju_intern/" style="display:block;">
+								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="images/bbkfp.png" width="100"><br>
+										Balai Besar Kalibrasi Fasilitas Penerbangan
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<h4 align="left">Organisasi Penerbangan di Indonesia dan Lembaga Terkait Lainnya</h4>
+						<div class="row" style="margin-bottom:10px;">
+							<a href="../../operator" style="display:block;">
+								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="images/opr.png" width="100"><br>
+										Portal Operator <br>dan Maskapai
+									</div>
+								</div>
+							</a>
+							<a href="../../airnav/Login.php" style="display:block;">
+								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="images/airnav.png" width="100"><br>
+										Portal Integrasi <br>AirNav Indonesia
+									</div>
+								</div>
+							</a>
+							<a href="../../knkt" style="display:block;">
+								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="images/knkt.png" width="100"><br>
+										Portal Integrasi <br>KNKT Indonesia
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<h4 align="left">&nbsp;</h4>
+						<div class="row" style="margin-bottom:10px;">
+							<a href="../../ap/Login.php" style="display:block;">
+								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="../assets/img/ap1.png" width="100"><br>
+										Portal Integrasi<br>Angkasapura I
+									</div>
+								</div>
+							</a>
+							<a href="../../ap/Login.php" style="display:block;">
+								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="../assets/img/ap2.png" width="100"><br>
+										Portal Integrasi<br>Angkasapura II
+									</div>
+								</div>
+							</a>
+							<a href="../../djpu/?id=ptdi" style="display:block;">
+								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+									<div class="stats-div">
+										<img src="../assets/img/ptdi.png" width="100"><br>
+										Portal Integrasi<br>Dirgantara Indonesia
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="background-color:#ededed;">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<h4 align="left">Public Access</h4>
+						<div class="row" style="margin-bottom:10px;">
+							<a href="https://imsis-djpu.dephub.go.id/id" data-toggle="modal" style="display:block;">
+								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+									<div class="stats-div">
+										<img src="images/ivrs.png" height="100"><br>
+										Voluntary Reporting System
+									</div>
+								</div>
+							</a>
+							<a href="#RegulationNew" data-toggle="modal" style="display:block;">
+								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+									<div class="stats-div">
+										<img src="images/regu.png" height="100"><br>
+										Latest Update of Regulation
+									</div>
+								</div>
+							</a>
+						</div>
+
+						<div class="row" style="margin-bottom:10px;">
+							<a href="https://imsis-djpu.dephub.go.id/pas_bandara/" data-toggle="modal" style="display:block;">
+								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+									<div class="stats-div">
+										<img src="images/id_card.png" height="100"><br>
+										Registrasi Pas Bandara
+									</div>
+								</div>
+							</a>
+
+							<a href="#PPID" data-toggle="modal" style="display:block;">
+								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+									<div class="stats-div">
+										<img src="images/support.png" height="100"><br>
+										PPID DJU
+									</div>
+								</div>
+							</a>
+
+						</div>
+						<div class="row" style="margin-bottom:10px;">
+							<a href="../../icaoSL/Login.php" style="display:block;">
+								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+									<div class="home-menu">
+										<img src="../../assets/img/icao-vector-logo-200x200.png" width="100" height="100"><br>
+										ICAO<br />State Letter
+									</div>
+								</div>
+							</a>
+						</div>
+
+					</div>
+				</div>
+				<hr>
+			</div>
+
+
+		</div>
+	</div>
+</div>	
+<?PHP include_once'footer.php'; ?>
+<script src="../assets/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="../assets/plugins/iCheck/icheck.min.js"></script>
+<script src="../assets/plugins/select2/select2.full.min.js"></script>
+<script src="../assets/dist/js/app.min.js"></script>
+<script src="../assets/dist/js/demo.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+<script> 
+	$(function () {
+		// Datepicker
+		$('.datepicker').datepicker({
+			format: 'yyyy-mm-dd',
+			autoclose: true
+		});
+		$('.datepicker2').datepicker({
+			format: 'dd/mm/yyyy',
+			autoclose: true
+		});
+		$('.datepicker3').datepicker({
+			format: 'mm/dd/yyyy',
+			autoclose: true
+		});
+		
+		$(".select2").select2();
+	});
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+
+
+<div id="UPBL" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Unit Penyelenggara Bandar Udara Lainnya</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<a href="../../operator" style="display:block;">
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+							<div class="stats-divv">
+								<img src="images/bijb.png" height="100"><br>
+								Bandara Internasional Jawa Barat (BIJB)
+							</div>
+						</div>
+					</a>
+					<a href="../../operator" style="display:block;">
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+							<div class="stats-divv">
+								<img src="images/batam.png" height="100"><br>
+								Unit Penyelenggara Bandara Batam
+							</div>
+						</div>
+					</a>
+					<a href="../../operator" style="display:block;">
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+							<div class="stats-divv">
+								<img src="images/malang.png" height="100"><br>
+								Unit Penyelenggara Bandara Malang 
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	
+<div id="Teknis" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Integrasi Data Teknis Direktorat Jenderal Perhubungan Udara</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<a href="integrasiTeknis_Sidebar.php?p=AOC" style="display:block;">
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+							<div class="stats-divv">
+								<img src="images/topr.png" height="100"><br>
+								Air Operator Certificate Holder
+							</div>
+						</div>
+					</a>
+					<a href="integrasiTeknis_Sidebar.php?p=CAR" style="display:block;">
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+							<div class="stats-divv">
+								<img src="images/tcar.png" height="100"><br>
+								Indonesian Civil Aircraft Register (CAR)
+							</div>
+						</div>
+					</a>
+					<a href="integrasiTeknis_Sidebar.php?p=PEL" style="display:block;">
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+							<div class="stats-divv">
+								<img src="images/tpel.png" height="100"><br>
+								Indonesian Registered Aircrew (PEL)
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="RegulationNew" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Latest Regulation of</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<a href="#RegNew" data-id="1" data-toggle="modal" style="display:block;">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+							<div class="stats-divv">
+								<img src="../../assets/img/dkppu.png" height="100"><br>
+								Regulasi Direktorat Kelaikudaraan dan Pengoperasian Pesawat Udara
+							</div>
+						</div>
+					</a>
+					<a href="#RegNew" data-id="4" data-toggle="modal" style="display:block;">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+							<div class="stats-divv">
+								<img src="../../assets/img/dau.png" height="100"><br>
+								Regulasi Direktorat <br /> Angkutan Udara
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="row" style="margin-top:20px;">
+					<a href="#RegNew" data-id="2" data-toggle="modal" style="display:block;">
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+							<div class="stats-divv">
+								<img src="../../assets/img/dbu.png" height="100"><br>
+								Regulasi Direktorat <br />Bandar Udara
+							</div>
+						</div>
+					</a>
+					<a href="#RegNew" data-id="3" data-toggle="modal" style="display:block;">
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+							<div class="stats-divv">
+								<img src="../../assets/img/dkp.png" height="100"><br>
+								Regulasi Direktorat<br /> Keamanan Penerbangan
+							</div>
+						</div>
+					</a>
+					<a href="#RegNew" data-id="5" data-toggle="modal" style="display:block;">
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+							<div class="stats-divv">
+								<img src="../../assets/img/dnp.png" height="100"><br>
+								Regulasi Direktorat<br /> Navigasi Penerbangan
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="RegNew" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Regulasi terkait.</h4>
+			</div>
+			<div class="modal-body">
+				<div class="ResultRegulation"></div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<script src="../assets/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+<script>
+	
+	$('#RegNew').on('show.bs.modal', function (e) {
+		var id = $(e.relatedTarget).data('id');
+		$.ajax({
+			type : 'post',
+			url : '../Regulation_DirSSP.php', //Here you will fetch records 
+			data :  'id='+ id, //Pass $id
+			success : function(data){
+				$('.ResultRegulation').html(data);//Show fetched data from database
+			}
+		});
+	});
+</script>
+
+
+
+<div id="Regulation" class="modal fade" role="dialog">
+	<div class="modal-dialog fullmob_50">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Latest Regulation of</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<?php
+					$i='1';
+					$getType	=	mysql_query("SELECT * FROM reg_type WHERE id_type NOT IN (9,11,12)");
+					while($fT	=	mysql_fetch_array($getType)){
+						if($fT['id_type']=='8'){
+							?>
+							<a href="#Others" data-toggle="modal" style="display:block;">
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+									<div class="home-menu-nohover2">
+										<img src="../<?php echo $fT['fa-icon']; ?>" height="100"><br>
+										<?php echo $fT['type']; ?>
+									</div>
+								</div>
+							</a>
+							<?php	
+						}
+						else if($fT['id_type']=='13'){
+							?>
+							<a href="Draft.php" style="display:block;">
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+									<div class="home-menu-nohover2">
+										<img src="../<?php echo $fT['fa-icon']; ?>" height="100"><br>
+										<?php echo $fT['type']; ?>
+									</div>
+								</div>
+							</a>
+							<?php
+						}
+						else{ 	
+							?>
+							<a href="GeneralMenu_REG.php?Regulation=<?php echo base64_encode(base64_encode(base64_encode($fT['id_type']))); ?>" style="display:block;">
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+									<div class="home-menu-nohover2">
+										<img src="../<?php echo $fT['fa-icon']; ?>" height="100"><br>
+										<?php echo $fT['type']; ?>
+									</div>
+								</div>
+							</a>
+							<?php	
+						} 
+						if(!($i % 4)){
+							echo "<br></div><div class='row margtop20'>";
+						}
+						$i++;
+					}
+					?>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="Others" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Regulasi Lain-lain</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<a href="#EmpModal" data-toggle="modal" style="display:block;">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+							<div class="stats-divv">
+								<img src="../assets/img/docs.png" height="100"><br>
+								Regulasi <br>Kepegawaian
+							</div>
+						</div>
+					</a>
+					<a href="#LawModal" data-toggle="modal" style="display:block;">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+							<div class="stats-divv">
+								<img src="../assets/img/exemp.png" height="100"><br>
+								Regulasi<br>Non-Kepegawaian
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="EmpModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Regulasi Kepegawaian</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<?php
+					$i='1';
+					$getType	=	mysqli_query($connect, "SELECT * FROM reg_law WHERE id_type='8'");
+					while($fT	=	mysqli_fetch_array($getType)){
+						?>
+						<a href="../../RegulationP_.php?Regulation=<?php echo base64_encode(base64_encode(base64_encode('8'))); ?>&ID=<?php echo $fT['id_law']; ?>" style="display:block;">
+							<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" style="margin-top:10px;">
+								<div class="stats-divv">
+									<img src="../<?php echo $fT['icon']; ?>" height="75"><br>
+									<?php echo $fT['law']; ?>
+								</div>
+							</div>
+						</a>
+						<?php
+						if(!($i % 4)){
+							echo "<br></div><div class='row margtop20'>";
+						}
+						$i++;
+					}
+					?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="LawModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Regulasi Produk Hukum</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<?php
+					$i='1';
+					$getType	=	mysqli_query($connect, "SELECT * FROM reg_law WHERE id_type='8'");
+					while($fT	=	mysqli_fetch_array($getType)){
+						?>
+						<a href="../../Regulation_.php?Regulation=<?php echo base64_encode(base64_encode(base64_encode('8'))); ?>&ID=<?php echo $fT['id_law']; ?>" style="display:block;">
+							<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" style="margin-top:10px;">
+								<div class="stats-divv">
+									<img src="../<?php echo $fT['icon']; ?>" height="75"><br>
+									<?php echo $fT['law']; ?>
+								</div>
+							</div>
+						</a>
+						<?php
+						if(!($i % 4)){
+							echo "<br></div><div class='row margtop20'>";
+						}
+						$i++;
+					}
+					?>
+					<a href="../../Regulation_.php?Regulation=VFZSSlBRPT0=" style="display:block;">
+						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" style="margin-top:10px;">
+							<div class="stats-divv">
+								<img src="../assets/img/ico1.png" height="75"><br>
+								ICAO State<br>Letter
+							</div>
+						</div>
+					</a>
+					<a href="../../Regulation_.php?Regulation=VFZSRlBRPT0=" style="display:block;">
+						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" style="margin-top:10px;">
+							<div class="stats-divv">
+								<img src="../assets/img/docs.png" height="75"><br>
+								Policy<br>Letter
+							</div>
+						</div>
+					</a>
+					<a href="../../Regulation_.php?Regulation=VDFFOVBRPT0=" style="display:block;">
+						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" style="margin-top:10px;">
+							<div class="stats-divv">
+								<img src="../assets/img/exemp.png" height="75"><br>
+								Surat<br>Exemption
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="PPID" class="modal fade" role="dialog">
+	<div class="modal-dialog">		
+		<div class="modal-content">	
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<div id="google_translate_element"></div>
+				<script type="text/javascript">
+					function googleTranslateElementInit() {
+						new google.translate.TranslateElement({pageLanguage: 'id', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+					}
+				</script>
+
+				<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+				<H3><center><b>SELAMAT DATANG DI PUSAT PENGADUAN DAN LAYANAN INFORMASI DJU</b></center></H3>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<p align="justify">Pusat Pengaduan dan Pelayanan Informasi (PPID) merupakan wadah bagi masyarakat baik dalam bentuk permohonan informasi mengenai semua layanan di DJU ataupun pengaduan terhadap pelayanan yang tidak sesuai dengan prosedur yang berlaku, berdasarkan :</p>
+						<ol>
+							<li align="justify">Undang-undang RI Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik (Lembaran Negara Republik Indonesia Tahun 2008 Nomor 61, Tambahan Lembaran Negara Republik Indonesia Nomor 4846)</li>
+							<li align="justify">Peraturan Menteri Perhubungan Republik Indonesia Nomor PM 72 Tahun 2010 tentang Standar Prosedur Operasional Layanan Informasi Publik di Lingkungan Kementerian Perhubungan</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+			<div class="modal-body">					
+				<div class="row">
+					<a href="#PPIDInformasi" data-toggle="modal" style="display:block;">
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+							<div class="stats-divv">
+								<img src="../../assets/img/informasi.png" height="100"><br>
+								Permintaan Informasi
+							</div>
+						</div>
+					</a>
+					<a href="#PPIDPengaduan" data-toggle="modal"  style="display:block;">
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+							<div class="stats-divv">
+								<img src="../../assets/img/pengaduan.png" height="100"><br>
+								Layanan Pengaduan
+							</div>
+						</div>
+					</a>
+					<a href="#PPIDCekStatus" data-toggle="modal" style="display:block;">
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+							<div class="stats-divv">
+								<img src="../../assets/img/status.png" height="100"><br>
+								Cek Status 
+							</div>
+						</div>
+					</a>
+				</div>					
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div id="PPIDInformasi" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Form Permintaan Informasi</h4>
+			</div>
+			<div class="modal-body">
+				<form role="form" method="post" action="PPIDSave.php">
+					<input type="hidden" name="type" value="Informasi">
+					<div class="form-group">
+						<label>Nama lengkap</label>
+						<input type="text" name="nama" class="form-control" placeholder="Masukkan nama lengkap anda" required>
+					</div>
+					<div class="form-group">
+						<label>Alamat email</label>
+						<input type="text" name="email" class="form-control" placeholder="Masukkan alamat email anda" required>
+					</div>
+					<div class="form-group">
+						<label>Ditujukan Kepada</label>
+						<select name="idsatker" class="form-control" required>
+							<option selected="selected" disabled="disabled" value="">- Pilih jenis pengaduan -</option>
+							<option value="6">SETDITJEN PERHUBUNGAN UDARA</option>
+							<option value="7">SETDITJEN PERHUBUNGAN UDARA -  BAGIAN HUKUM</option>
+							<option value="8">SETDITJEN PERHUBUNGAN UDARA -  BAGIAN KEPEGAWAIAN DAN ORGANISASI</option>
+							<option value="9">SETDITJEN PERHUBUNGAN UDARA -  BAGIAN KEPEGAWAIAN DAN ORGANISASI</option>
+							<option value="10">SETDITJEN PERHUBUNGAN UDARA -  BAGIAN KEUANGAN</option>
+							<option value="11">SETDITJEN PERHUBUNGAN UDARA -  BAGIAN KEUANGAN</option>
+							<option value="1">DIREKTORAT KELAIKUDARAAN DAN PENGOPERASIAN PESAWAT UDARA</option>
+							<option value="2">DIREKTORAT BANDAR UDARA</option>
+							<option value="3">DIREKTORAT KEAMANAN PENERBANGAN</option>
+							<option value="4">DIREKTORAT ANGKUTAN UDARA</option>
+							<option value="5">DIREKTORAT NAVIGASI PENERBANGAN</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label>Rincian informasi yang dibutuhkan</label>
+						<textarea name="rinci" rows="3" style="resize:none;" class="form-control" placeholder="Masukkan rincian informasi yang dibutuhkan" required></textarea>
+					</div>
+					
+					<div align="center">
+						<button type="submit" class="btn btn-xs btn-success"><i class="fa fa-arrow-right"></i> Ajukan Permohonan Informasi</button>
+						<button type="button" class="btn btn-xs btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Batal dan Keluar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="PPIDPengaduan" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Formulir Layanan Pengaduan</h4>
+			</div>
+			<div class="modal-body">
+
+				<form role="form" method="post" action="PPIDSave.php">
+					<input type="hidden" name="type" value="Pengaduan">
+
+					<div class="form-group">
+						<label>Alamat email</label>
+						<input type="text" name="email" class="form-control" placeholder="Masukkan alamat email anda" required>
+					</div>
+					<div class="form-group">
+						<label>Ditujukan Kepada</label>
+						<select name="idsatker" class="form-control" required>
+							<option selected="selected" disabled="disabled" value="">- Pilih jenis pengaduan -</option>
+							<option value="6">SETDITJEN PERHUBUNGAN UDARA</option>
+							<option value="7">SETDITJEN PERHUBUNGAN UDARA -  BAGIAN HUKUM</option>
+							<option value="8">SETDITJEN PERHUBUNGAN UDARA -  BAGIAN KEPEGAWAIAN DAN ORGANISASI</option>
+							<option value="9">SETDITJEN PERHUBUNGAN UDARA -  BAGIAN KEPEGAWAIAN DAN ORGANISASI</option>
+							<option value="10">SETDITJEN PERHUBUNGAN UDARA -  BAGIAN KEUANGAN</option>
+							<option value="11">SETDITJEN PERHUBUNGAN UDARA -  BAGIAN KEUANGAN</option>
+							<option value="1">DIREKTORAT KELAIKUDARAAN DAN PENGOPERASIAN PESAWAT UDARA</option>
+							<option value="2">DIREKTORAT BANDAR UDARA</option>
+							<option value="3">DIREKTORAT KEAMANAN PENERBANGAN</option>
+							<option value="4">DIREKTORAT ANGKUTAN UDARA</option>
+							<option value="5">DIREKTORAT NAVIGASI PENERBANGAN</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label>Jenis pengaduan</label>
+						<select name="jenis" class="form-control" required>
+							<option selected="selected" disabled="disabled" value="">- Pilih jenis pengaduan -</option>
+							<option value="Korupsi, penggelapan aset, pencurian">Korupsi, penggelapan aset, pencurian</option>
+							<option value="Kolusi / gratifikasi">Kolusi / gratifikasi</option>
+							<option value="Nepotisme">Nepotisme</option>
+							<option value="Fraud termasuk penipuan dan pembiaran melakukan pelanggaran">Fraud termasuk penipuan dan pembiaran melakukan pelanggaran</option>
+							<option value="Pelanggaran kode etik termasuk benturan kepentingan">Pelanggaran kode etik termasuk benturan kepentingan</option>
+							<option value="Perbuatan melanggar peraturan">Perbuatan melanggar peraturan</option>
+							<option value="Lain-lain">Lain-lain (dijelaskan pada kolom keterangan dibawah)</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label>Keterangan pengaduan</label>
+						<textarea name="ket" rows="3" style="resize:none;" class="form-control" placeholder="Masukkan rincian informasi yang diadukan" required></textarea>
+					</div>
+					<!--<div class="form-group" align="left">
+						<label>Tanggal kejadian</label>
+						<div class="input-group input-append date" id="datePicker1">
+							<input type="text" class="form-control" name="tanggal" placeholder="tanggal kejadian (yyyy/mm/dd)" required>
+							<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+						</div>
+					</div>
+					<div class="form-group" align="left">
+						<label>Lampiran</label>
+						<input type="file" class="btn btn-warning btn-sm" name="upload"  accept="image/*">
+					</div>-->
+					<div align="center">
+						<button type="submit" class="btn btn-xs btn-success"><i class="fa fa-save"></i> Simpan Pengaduan</button>
+						<button type="button" class="btn btn-xs btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Batal dan Keluar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div id="PPIDCekStatus" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Cek Pengajuan Informasi</h4>
+			</div>
+			<div class="modal-body">
+
+				<form role="form" method="post" action="PPIDView.php">
+					<input type="hidden" name="type" value="Pengaduan">
+
+					<div class="form-group">
+						<label>Nomor Pengajuan</label>
+						<input type="text" name="nomor" class="form-control" placeholder="Masukan nomor pengajuan" required>
+					</div>
+					<div align="center">
+						<button type="submit" class="btn btn-xs btn-success"><i class="fa fa-save"></i> Cek Data</button>
+						<button type="button" class="btn btn-xs btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Batal dan Keluar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="VRS" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Voluntary Reporting System</h4>
+			</div>
+			<div class="modal-body">
+				<form role="form" method="post" action="SaveVRS.php">
+					<div class="form-group">
+						<label>Alamat email</label>
+						<input type="text" name="email" class="form-control" placeholder="Masukkan alamat email anda" required>
+					</div>
+					<div class="form-group">
+						<label>Nomor telepon</label>
+						<input type="text" name="phone" class="form-control" placeholder="Masukkan nomor telepon aktif anda" required>
+					</div>
+					<div class="form-group" align="left">
+						<label>Jenis kejadian</label>
+						<select name="id_sub" class="form-control select2" style="width:100%;" required>
+							<option selected="selected" value="" disabled="disabled">- Pilih Jenis Kejadian -</option>
+							<?php
+							$getJaba	=	mysqli_query($connect, "SELECT s.sub AS Sub, s.id_sub AS SubID, t.type AS Type FROM incident_type_sub s 
+								INNER JOIN incident_type t ON t.id_type = s.id_type");
+							while($fJaba=	mysqli_fetch_array($getJaba)) {
+								echo "<option value=".$fJaba['SubID'].">".$fJaba['Type']." - ".$fJaba['Sub']."</option>";
+							}
+							?>
+						</select>
+					</div>
+					<div class="form-group">
+						<label>Lokasi kejadian</label>
+						<input type="text" name="location" class="form-control" placeholder="Masukkan tempat kejadian" required>
+					</div>
+					<div class="form-group" align="left">
+						<label>Maskapai penerbangan</label>
+						<select name="id_operator" class="form-control select2" style="width:100%;" required>
+							<option selected="selected" value="" disabled="disabled">- Pilih Operator -</option>
+							<?php
+							$getJaba	=	mysqli_query($connect, "SELECT aoc, id_operator, legal_name FROM m_operator WHERE isactive = '1' AND id_aoc_status = '1'");
+							while($fJaba=	mysqli_fetch_array($getJaba)) {
+								echo "<option value=".$fJaba['id_operator'].">".$fJaba['aoc']." / ".$fJaba['legal_name']."</option>";
+							}
+							?>
+						</select>
+					</div>
+					<div class="form-group" align="left">
+						<label>Pesawat udara</label>
+						<select name="id_aircraft" class="form-control select2" style="width:100%;" required>
+							<option selected="selected" value="" disabled="disabled">- Pilih Pesawat Udara -</option>
+							<?php
+							$getJaba	=	mysqli_query($connect, "SELECT registration_mark, id_aircraft, aircraft_model FROM m_aircraft WHERE isactive = '1' AND id_status = '1' LIMIT 300");
+							while($fJaba=	mysqli_fetch_array($getJaba)) {
+								echo "<option value=".$fJaba['id_aircraft'].">PK-".$fJaba['registration_mark']." / ".$fJaba['aircraft_model']."</option>";
+							}
+							?>
+						</select>
+					</div>
+					<div class="form-group">
+						<label>Tanggal kejadian</label>
+						<input type="text" name="date_occurence" class="form-control datepicker" placeholder="Format (yyyy-mm-dd)" required>
+					</div>
+					<div class="form-group">
+						<label>Keterangan kejadian</label>
+						<textarea name="occurence_description" rows="3" style="resize:none;" class="form-control" placeholder="Masukkan rincian informasi yang diadukan" required></textarea>
+					</div>
+					<div align="center">
+						<button type="submit" class="btn btn-xs btn-success"><i class="fa fa-save"></i> Simpan Pengaduan</button>
+						<button type="button" class="btn btn-xs btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Batal dan Keluar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="Devel" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Warning.</h4>
+			</div>
+			<div class="modal-body">
+				You don't have permission to access this information.
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
